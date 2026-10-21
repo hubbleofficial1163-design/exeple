@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Свадьба Даниила и Анны</title>
+    <style>
+        /* --- ШРИФТЫ --- */
+        @font-face {
+            font-family: 'Passions Conflict';
+            src: url('PassionsConflictRUS-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3e9dc;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #4a3b32;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 1: HERO
+           ========================================== */
+        .hero-section {
+            width: 100%;
+            height: 90svh;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 600px;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .hero-bottom {
+            width: 100%;
+            height: 10svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .music-control {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .music-text-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateText 20s linear infinite;
+            pointer-events: none;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            z-index: 3;
+            padding: 0;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .music-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes rotateText {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 2: ПРИГЛАШЕНИЕ
+           ========================================== */
+        .invitation-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 20px 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .invitation-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 94px;
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 1;
+            font-weight: 100;
+        }
+
+        .invitation-text {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #5c5044;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .calendar-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calendar-img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            display: block;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 3: ТАЙМЛАЙН
+           ========================================== */
+        .timeline-section {
+            position: relative;
+            width: 100%;
+            padding: 50px 0 100px 0;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 1600px; 
+        }
+
+        .timeline-svg-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            stroke: #777b56; 
+            stroke-width: 2;
+            fill: none;
+            preserveAspectRatio: xMidYMid meet; 
+        }
+
+        .heart-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px; 
+            height: 80px; 
+            z-index: 3;
+            pointer-events: none;
+            transform: translate(-50%, -50%); 
+        }
+
+        .timeline-heart-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transform: rotate(0deg); 
+        }
+
+        .timeline-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly; 
+            padding: 40px 20px;
+        }
+
+        .event-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+        }
+
+        .event-item.left {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 5%;
+        }
+        
+        .event-item.right {
+            align-items: flex-end;
+            text-align: right;
+            padding-right: 5%;
+        }
+
+        .event-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 86px;
+            color: #4a2c24;
+            line-height: 1;
+            margin-bottom: -5px;
+        }
+
+        .event-time {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: 100;
+            color: #5c5044;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 4: МЕСТО ПРОВЕДЕНИЯ
+           ========================================== */
+        .location-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+        }
+
+        .location-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 80px;
+            color: #5a221c;
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-weight: 100;
+        }
+
+        .location-address {
+            font-size: 20px;
+            line-height: 1.4;
+            font-weight: 300;
+            color: #5c5044;
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .map-button-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            width: 200px;
+            height: 200px; 
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #a3a78a;
+            border-radius: 50%;
+            z-index: 1;
+            animation: pulse-animation 2.5s infinite ease-out;
+            opacity: 0;
+        }
+
+        .map-button {
+            position: relative;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+            background-color: #7b8451;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: #2e231d;
+            font-size: 18px;
+            line-height: 1.3;
+            font-weight: 400;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .map-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0.75); opacity: 0.8; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .location-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 5: ДРЕСС-КОД
+           ========================================== */
+        .dresscode-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .dresscode-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 94px;
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 1;
+            font-weight: 100;
+        }
+
+        .dresscode-text {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #5c5044;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 10px; 
+            justify-content: center;
+            flex-wrap: nowrap; 
+        }
+
+        .color-box {
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
+            transition: transform 0.3s ease; 
+        }
+
+        .color-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-1 { background-color: #6b7456; } 
+        .color-2 { background-color: #94a88b; } 
+        .color-3 { background-color: #8a9ba8; } 
+        .color-4 { background-color: #b7cade; } 
+        .color-5 { background-color: #f4f4f4; } 
+
+        /* ==========================================
+           СЕКЦИЯ 6: DETAILS
+           ========================================== */
+        .details-section {
+            width: 100%;
+            padding: 0; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .details-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-bg-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .details-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            padding: 40px 15px; 
+            text-align: center;
+        }
+
+        .details-top-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -60px; 
+            margin-bottom: 60px; 
+        }
+
+        .details-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 100px; 
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 10px; 
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4); 
+            font-weight: 100;
+        }
+
+        .details-text {
+            color: #ffffff;
+            font-size: 18px; 
+            line-height: 1.4;
+            font-weight: 600; 
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); 
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 7: АНКЕТА (ФОРМА)
+           ========================================== */
+        .form-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 60px 20px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            text-align: left;
+        }
+
+        .form-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 94px;
+            color: #000000;
+            margin-bottom: 10px;
+            line-height: 1;
+            width: 100%;
+            text-align: center; 
+            font-weight: 100;
+        }
+
+        .form-subtitle {
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 300;
+            color: #5c5044;
+            margin-bottom: 40px;
+            width: 100%;
+            text-align: center; 
+        }
+
+        .form-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .form-group {
+            width: 100%;
+            max-width: 400px; 
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+        }
+
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #4a3b32; 
+            padding: 10px 0;
+            font-size: 18px;
+            font-family: inherit;
+            color: #4a3b32;
+            outline: none;
+            font-weight: 300;
+            text-align: left; 
+        }
+
+        .form-input::placeholder {
+            color: #a89e93; 
+            font-weight: 300;
+            text-align: left; 
+        }
+
+        .question-label {
+            display: block;
+            font-size: 18px;
+            font-weight: 300;
+            color: #5c5044;
+            margin-bottom: 15px;
+            text-align: left; 
+            width: 100%;
+        }
+
+        .custom-radio-group,
+        .custom-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start; 
+            width: 100%;
+        }
+
+        .custom-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 300;
+            color: #4a3b32;
+            text-align: left; 
+        }
+
+        .custom-option input {
+            display: none;
+        }
+
+        .radio-mark {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #777b56; 
+            border-radius: 50%;
+            margin-right: 15px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .checkbox-mark {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #777b56;
+            margin-right: 15px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .custom-option input:checked + .radio-mark::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-color: #777b56;
+            border-radius: 50%;
+        }
+
+        .custom-option input:checked + .checkbox-mark::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-color: #777b56;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            align-self: center; 
+            background-color: transparent;
+            border: 2px solid #4a3b32;
+            border-radius: 40px; 
+            padding: 15px 60px;
+            font-size: 16px;
+            color: #4a3b32;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .submit-btn:active {
+            background-color: #4a3b32;
+            color: #f3e9dc;
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 8: КОНТАКТЫ
+           ========================================== */
+        .contacts-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 60px 20px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contacts-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 94px;
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 1;
+            font-weight: 100;
+        }
+
+        .contacts-text {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #5c5044;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .contact-button-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; 
+            width: 200px;
+            height: 200px; 
+        }
+        
+        .contact-button {
+            position: relative;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+            background-color: #7b8451;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: #2e231d;
+            font-size: 18px;
+            line-height: 1.3;
+            font-weight: 400;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .contact-button:active {
+            transform: scale(0.95);
+        }
+
+        /* ==========================================
+           СЕКЦИЯ 9: ТАЙМЕР (FOOTER)
+           ========================================== */
+        .footer-section {
+            width: 100%;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bg-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .footer-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: 'Passions Conflict', cursive;
+            font-size: 70px;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+            font-weight: 100;
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px; 
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .timer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); 
+        }
+
+        .timer-number {
+            font-size: 42px; 
+            font-weight: 100;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .timer-label {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- СЕКЦИЯ 1: HERO -->
+    <section class="hero-section">
+        <img src="1.png" alt="Даниил и Анна" class="hero-photo">
+    </section>
+
+    <div class="hero-bottom">
+        <div class="music-control">
+            <img src="text.svg" alt="Нажмите, чтобы включить музыку" class="music-text-svg">
+            <button id="musicBtn" class="music-btn" aria-label="Включить музыку">
+                <img src="start.svg" alt="Play" id="musicIcon">
+            </button>
+        </div>
+    </div>
+
+    <!-- СЕКЦИЯ 2: ПРИГЛАШЕНИЕ -->
+    <section class="invitation-section">
+        <h1 class="invitation-title">Дорогие гости!</h1>
+        <p class="invitation-text">
+            Мы очень хотим сделать этот день особенным, поэтому приглашаем Вас разделить с нами торжество, посвященное дню нашей свадьбы!
+        </p>
+        <div class="calendar-wrapper">
+            <img src="date.png" alt="12 августа" class="calendar-img">
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 3: ТАЙМЛАЙН -->
+    <section class="timeline-section">
+        <div class="timeline-container">
+            
+            <svg class="timeline-svg-line" viewBox="0 0 300 1377" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                <path id="scroll-path" d="M160.2404 0.7446C143.0498 130.3245 275.5576 133.8347 262.9866 233.3739C247.2478 357.9947 31.2581 334.0184 31.2572 462.9924C31.2563 591.9655 274.3348 573.6124 281.228 707.4962C288.1212 841.376 112.3066 807.0884 31.2572 892.7164C-59.6853 988.7943 77.4536 1042.7108 177.211 1078.8888C255.9866 1107.4529 298.7455 1152.4594 298.7407 1206.9954C298.7358 1260.9689 250.0732 1309.9371 163.3716 1377.3123"></path>
+            </svg>
+
+            <div class="heart-wrapper" id="moving-heart">
+                <img src="heart.svg" alt="Heart" class="timeline-heart-img">
+            </div>
+
+            <div class="timeline-content">
+                <div class="event-item left">
+                    <div class="event-title">Welcome</div>
+                    <div class="event-time">17:00</div>
+                </div>
+
+                <div class="event-item right">
+                    <div class="event-title">Церемония</div>
+                    <div class="event-time">17:30</div>
+                </div>
+
+                <div class="event-item left">
+                    <div class="event-title">Банкет</div>
+                    <div class="event-time">18:00</div>
+                </div>
+
+                <div class="event-item right">
+                    <div class="event-title">Торты</div>
+                    <div class="event-time">22:00</div>
+                </div>
+                
+                <div class="event-item left">
+                    <div class="event-title">Финал</div>
+                    <div class="event-time">23:00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 4: МЕСТО ПРОВЕДЕНИЯ -->
+    <section class="location-section">
+        <h1 class="location-title">Место проведения</h1>
+        <p class="location-address">
+            Видная Усадьба,<br>
+            Старо-Нагорная ул., 20Б, Видное
+        </p>
+
+        <div class="map-button-wrapper">
+            <div class="pulse-ring"></div>
+            <a href="https://yandex.ru/maps/-/CDxjFDl5" target="_blank" rel="noopener noreferrer" class="map-button">
+                Построить<br>маршрут
+            </a>
+        </div>
+
+        <img src="loc.png" alt="Видная Усадьба" class="location-image">
+    </section>
+
+    <!-- СЕКЦИЯ 5: ДРЕСС-КОД -->
+    <section class="dresscode-section">
+        <h1 class="dresscode-title">Дресс-код</h1>
+        <p class="dresscode-text">
+            Мы будем очень благодарны, если вы поддержите цветовую палитру нашей свадьбы.
+        </p>
+        
+        <div class="color-palette">
+            <div class="color-box color-1"></div>
+            <div class="color-box color-2"></div>
+            <div class="color-box color-3"></div>
+            <div class="color-box color-4"></div>
+            <div class="color-box color-5"></div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 6: DETAILS -->
+    <section class="details-section">
+        <div class="details-container">
+            <img src="details.png" alt="Details" class="details-bg-img">
+            
+            <div class="details-content">
+                <div class="details-top-group">
+                    <h1 class="details-title">Details</h1>
+                    <p class="details-text">
+                        Свои тёплые слова и пожелания приносите в сердцах, а подарки - в конверте
+                    </p>
+                </div>
+                
+                <div class="details-bottom-text">
+                    <p class="details-text">
+                        Вместо цветов мы будем счастливы получить бутылочку вина, которую вместе разделим однажды вечером.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 7: АНКЕТА -->
+    <section class="form-section">
+        <h1 class="form-title">Анкета</h1>
+        <p class="form-subtitle">
+            Подтвердите свое присутствие<br>до 20 июля.
+        </p>
+
+        <div class="form-wrapper">
+            <form action="#" method="POST" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <!-- Имя -->
+                <div class="form-group">
+                    <label for="name" class="question-label">Ваше имя и фамилия</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
+                </div>
+
+                <!-- Присутствие -->
+                <div class="form-group">
+                    <span class="question-label">Получится ли у вас присутствовать?</span>
+                    <div class="custom-radio-group">
+                        <label class="custom-option">
+                            <input type="radio" name="attendance" value="yes" required>
+                            <span class="radio-mark"></span>
+                            Да
+                        </label>
+                        <label class="custom-option">
+                            <input type="radio" name="attendance" value="no">
+                            <span class="radio-mark"></span>
+                            Нет
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Алкоголь -->
+                <div class="form-group">
+                    <span class="question-label">Что предпочитаете из алкоголя?</span>
+                    <div class="custom-checkbox-group">
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="champagne">
+                            <span class="checkbox-mark"></span>
+                            Шампанское
+                        </label>
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="white_wine">
+                            <span class="checkbox-mark"></span>
+                            Вино белое
+                        </label>
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="red_wine">
+                            <span class="checkbox-mark"></span>
+                            Вино красное
+                        </label>
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="cognac_whiskey">
+                            <span class="checkbox-mark"></span>
+                            Коньяк/Виски
+                        </label>
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="vodka">
+                            <span class="checkbox-mark"></span>
+                            Водка
+                        </label>
+                        <label class="custom-option">
+                            <input type="checkbox" name="alcohol" value="non_alcoholic">
+                            <span class="checkbox-mark"></span>
+                            Безалкогольные напитки
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Горячее -->
+                <div class="form-group">
+                    <span class="question-label">Ваши предпочтения по горячим блюдам?</span>
+                    <div class="custom-radio-group">
+                        <label class="custom-option">
+                            <input type="radio" name="hot_dish" value="chicken">
+                            <span class="radio-mark"></span>
+                            Курица
+                        </label>
+                        <label class="custom-option">
+                            <input type="radio" name="hot_dish" value="meat">
+                            <span class="radio-mark"></span>
+                            Мясо
+                        </label>
+                        <label class="custom-option">
+                            <input type="radio" name="hot_dish" value="fish">
+                            <span class="radio-mark"></span>
+                            Рыба
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Аллергии -->
+                <div class="form-group">
+                    <label for="allergies" class="question-label">Есть ли у вас пищевые аллергии?</label>
+                    <input type="text" id="allergies" name="allergies" class="form-input">
+                </div>
+
+                <!-- Кнопка -->
+                <button type="submit" class="submit-btn">ОТПРАВИТЬ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 8: КОНТАКТЫ -->
+    <section class="contacts-section">
+        <h1 class="contacts-title">Контакты</h1>
+        <p class="contacts-text">
+            Если вы хотите сделать для нас сюрприз или уточнить детали торжества, свяжитесь, пожалуйста, с нашим организатором - Юлия.
+        </p>
+
+        <div class="contact-button-wrapper">
+            <div class="pulse-ring"></div>
+            <!-- ПУСТАЯ ССЫЛКА, ВСТАВИТЬ СВОЮ ПОЗЖЕ -->
+            <a href="#" class="contact-button">
+                Позвонить
+            </a>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 9: ТАЙМЕР -->
+    <section class="footer-section">
+        <div class="footer-container">
+            <img src="footer.png" alt="До встречи через" class="footer-bg-img">
+            
+            <div class="footer-content">
+                <h1 class="footer-title">До встречи через:</h1>
+                
+                <div class="timer-grid" id="countdown">
+                    <div class="timer-item">
+                        <span class="timer-number" id="days">00</span>
+                        <span class="timer-label">дней</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="hours">00</span>
+                        <span class="timer-label">часов</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="minutes">00</span>
+                        <span class="timer-label">минут</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="seconds">00</span>
+                        <span class="timer-label">секунд</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <audio id="bgMusic" loop>
+        <source src="1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- МУЗЫКА ---
+            const musicBtn = document.getElementById('musicBtn');
+            const musicIcon = document.getElementById('musicIcon');
+            const bgMusic = document.getElementById('bgMusic');
+
+            const toggleMusic = () => {
+                if (bgMusic.paused) {
+                    bgMusic.play().then(() => {
+                        musicIcon.src = 'stop.svg';
+                    }).catch(error => console.error(error));
+                } else {
+                    bgMusic.pause();
+                    musicIcon.src = 'start.svg';
+                }
+            };
+            musicBtn.addEventListener('click', toggleMusic);
+
+            // --- АНИМАЦИЯ СЕРДЕЧКА ---
+            gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+            const heartWrapper = document.getElementById("moving-heart");
+            const path = document.getElementById("scroll-path");
+
+            gsap.to(heartWrapper, {
+                scrollTrigger: {
+                    trigger: ".timeline-section",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: 1,
+                },
+                motionPath: {
+                    path: path,
+                    align: path,
+                    alignOrigin: [0.5, 0.5], 
+                    autoRotate: false, 
+                },
+                ease: "none"
+            });
+
+            window.addEventListener('resize', () => {
+                ScrollTrigger.refresh();
+            });
+
+            // --- ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ---
+            // Дата свадьбы: 8 июля 2027 года, 00:00:00
+            // Внимание: в JS месяцы считаются с 0 (0 - Январь, 6 - Июль)
+            const weddingDate = new Date(2027, 6, 8, 0, 0, 0).getTime();
+
+            const updateTimer = () => {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                if (distance < 0) {
+                    document.getElementById("countdown").innerHTML = "<h2 style='color:white; text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-family: Helvetica, sans-serif; font-weight: 300;'>Сегодня тот самый день!</h2>";
+                    return;
+                }
+
+                // Вычисления
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Вывод на экран с добавлением нуля в начале, если число < 10
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            };
+
+            // Запускаем таймер сразу и обновляем каждую секунду
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+        });
+    </script>
+</body>
+</html>
